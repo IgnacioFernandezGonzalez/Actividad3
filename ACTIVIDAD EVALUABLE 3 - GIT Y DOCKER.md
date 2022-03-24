@@ -52,7 +52,7 @@ Obteniendo el siguiente resultado
 
 ![image-20220324200228407](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220324200228407.png)
 
-Ahora podemos hacer el siguiente paso, que es crear el fichero `index.html`, para ello ayudandonos del editor nano (el cual hay que instalar en el contenedor), editaremos el fichero segun el enunciado del ejercicio.
+Ahora podemos hacer el siguiente paso, que es crear el fichero `index.html`, para ello ayudándonos del editor nano (el cual hay que instalar en el contenedor), editaremos el fichero segun el enunciado del ejercicio.
 
 Primero actualizamos la lista de paquetes con:
 
@@ -74,5 +74,70 @@ Ahora podemos visualizar este documento html en el navegados y por el puerto 800
 
 ![image-20220324205329652](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220324205329652.png)
 
-En este punto vamos a confirmar nuestros cambios en git y vamos a pasar los ficheros a nuestro repositorio de github
+En este punto, y haciendo uso de git, vamos a crear una rama en nuestro repositorio para alojar el documento .md que estamos creando con la solucion de este ejercicio.
 
+Iniciamos un repositorio en la carpeta de local donde estamos guardando los documentos, con el comando.
+
+```
+git init
+```
+
+![image-20220324211208487](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220324211208487.png)
+
+Una vez iniciado el repositorio, añadimos los ficheros que tenemos actualmente a este repositorio con el comando
+
+```
+git add .
+```
+
+![image-20220324211341892](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220324211341892.png)
+
+Si ejecutamos el comado 
+
+```
+git status
+```
+
+observamos que tenemos cambios sin confirmar
+
+![image-20220324211530767](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220324211530767.png)
+
+El siguiente paso es realizar un commit, para confirmar estos cambios que damos por buenos.
+
+```
+git commit -m "index.htm creado"
+```
+
+![image-20220324211705570](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220324211705570.png)
+
+Podemos subir estos ficheros a github, con el comando
+
+```
+git push origin master
+```
+
+Ahora estamos trabajando en la rama master, pero en el ejercicio se nos dice que trabjemos en ramas diferentes para cada apartado, por tanto vamos a crear una rama "ejercicio1" y ahí trabajaremos en este ejercicio.
+
+```
+git branch ejercicio1
+```
+
+Y nos situaremos en ella con el siguiente comando
+
+```
+git checkout ejercicio1
+```
+
+Como se observa ya estamos en la rama "ejercicio1"
+
+![image-20220324212056453](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220324212056453.png)
+
+Ahora podemos subir estos ficheros de la rama a git hub, para ello, ejecutamos el comando
+
+```
+git push origin ejercicio1
+```
+
+Como vemos en github, tenemos las ramas subidas (main y ejercicio1)
+
+![image-20220324212544869](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220324212544869.png)
