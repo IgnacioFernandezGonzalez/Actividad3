@@ -70,7 +70,7 @@ Ya podemos crear el fichero index.html con el código que queramos.
 
 <img src="ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220324205200677.png" alt="image-20220324205200677" style="zoom:80%;" />
 
-Ahora podemos visualizar este documento html en el navegados y por el puerto 8000, como indicamos al correr el contenedor.
+Ahora podemos visualizar este documento .html en el navegador y por el puerto 8000, como indicamos al correr el contenedor.
 
 ![image-20220324205329652](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220324205329652.png)
 
@@ -141,3 +141,17 @@ git push origin ejercicio1
 Como vemos en github, tenemos las ramas subidas (main y ejercicio1)
 
 ![image-20220324212544869](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220324212544869.png)
+
+En este mismo apartado se nos manda incluir tambien en la misma ruta un fichero mes.php que muestre el mes actual. Para ello crearemos en el directorio /var/www/html de nuestro contenedor el fichero mes.php con el siguiente contenido.
+
+```
+<?php
+setlocale(LC_TIME, 'esp');
+echo date("F");
+?>
+```
+
+Nos muestra lo siguiente (debería de mostrarlo en castellano, pero en mi navegador no es así, y el código es el correcto.)
+
+![image-20220325184500294](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220325184500294.png)
+
