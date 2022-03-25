@@ -18,6 +18,8 @@ A continuación he generado un directorio en mi disco local para alojar mis fich
 
 ## Ejercicio 1 - trabajo con imágenes
 
+### Servidor WEB
+
 Para empezar vamos a ejecutar un contenedor con la imagen de php:7.4-apache. Le vamos a dar de nombre web y vamos a hacer que sea accesible desde el navegador por el puerto 8080. 
 
 Lo primero que podemos hacer es comprobar si tenemos algún contenedor con ese nombre "web" ya que de ser así,no se nos permitiría crear otro, para ello usamos el comando
@@ -185,3 +187,70 @@ Como vemos ahora, el contenedor "web", no existe
 
 ![image-20220325191529855](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220325191529855.png)
 
+### Servidor de base de datos
+
+Ahora vamos a correr un contenedor que ejecute una onstancia de la imagen mariadb.
+
+Como vemos esta imagen esta en GitHub, y es oficial
+
+![image-20220325192124263](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220325192124263.png)
+
+Lo primero que haremos, será dentro de nuestra rama para solucionar este ejercicio descargarnos la imagen de mariadb
+
+```
+docker pull mariadb
+```
+
+Una vez descargada podremos correr el contenedor y ponerle los datos de usuarios y contraseñas que se nos solicitan en el ejercicio, lo haremos con el comando
+
+```
+docker run --detach --name bbdd --env MARIADB_USER=invitado --env MARIADB_PASSWORD=invitado --env MARIADB_ROOT_PASSWORD=root --env MARIADB_DATABASE=prueba mariadb:latest
+```
+
+![image-20220325195010317](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220325195010317.png)
+
+Vamos a conectarnos a la base de datos para comprobar que tenemos acceso con el usuario creado y donde se ve que esta creada la base de datos prueba
+
+Para la conexion a la base da datos  primero nos pondremos en el shell del contenedor, con el comando
+
+```
+docker exex -it bbdd bash
+```
+
+Y a continuacion nos conectaremos a la base de datos con el usuario creado y su contraseña, a traves del siguiente comando
+
+```
+mysql --user=invitado --password=invitado
+```
+
+![image-20220325201610299](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220325201610299.png)
+
+Una vez conectados podemos ver si se nos ha creado la base de datos "prueba", con el comando 
+
+```sql
+show databases;
+```
+
+Y como podemos comprobar, el resultado es satisfactorio
+
+![image-20220325201726574](image-20220325201726574.png)
+
+Para elimianr el contenedor usaremos el comando
+
+```
+docker rm bbdd
+```
+
+Al no haber parado el contenedor nos da un error y no nos deja borrarlo
+
+![image-20220325201855647](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220325201855647.png)
+
+Debemos de parar el contenedor con el siguiente comando, antes de eliminarlo
+
+```
+docker stop bbdd
+```
+
+Ahora ya podemos eliminar el contenedor. Cómo e ve en la imagen, ya esta eliminado
+
+![image-20220325202040544](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220325202040544.png)
