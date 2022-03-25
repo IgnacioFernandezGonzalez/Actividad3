@@ -155,3 +155,33 @@ Nos muestra lo siguiente (debería de mostrarlo en castellano, pero en mi navega
 
 ![image-20220325184500294](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220325184500294.png)
 
+En este punto vamos a comprobar el tamaño del contenedor web después de crear los ficheros index.html y mes.php, lo haremos con el comando
+
+```
+docker ps --size
+```
+
+Obteniendo como resultado 19.5MB
+
+![image-20220325190934653](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220325190934653.png)
+
+Por último borraremos el contenedor.
+
+Primero tenemos que para el contenedor con el comando
+
+```
+docker stop web
+```
+
+Y ahora podremos eliminarlo con el comando
+
+```
+docker rm web
+```
+
+![image-20220325191437294](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220325191437294.png)
+
+Como vemos ahora, el contenedor "web", no existe
+
+![image-20220325191529855](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220325191529855.png)
+
