@@ -291,3 +291,23 @@ Una vez montado podemos acceder por el navegador a nuestro fichero .html en el p
 
 ![image-20220326115104988](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220326115104988.png)
 
+Para continuar, arrancaremos otro contenedor de nombre "c2", haciendo un bind mount de la carpeta saludo en la carpeta `/var/html/www` de dicho contenedor, y haciendo que podamos acceder a el contenido por el puerto 8282
+
+Lo haremos con el comando
+
+```
+docker container run --name c2 -v /ejercicio2/saludo:/var/www/html --publish 8282:80 --detach --restart=always php:7.4-apache
+```
+
+![image-20220326115644724](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220326115644724.png)
+
+Ahora con el contenedor "c2" arrancado modificaremos el contenido del fichero `index.html`
+
+![image-20220326115829601](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220326115829601.png)
+
+Vamos a comprobar que efectivamente tenemos acceso a este index.htm por el puerto 8282
+
+![image-20220326120006000](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220326120006000.png)
+
+
+
