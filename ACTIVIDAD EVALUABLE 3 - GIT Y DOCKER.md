@@ -1,5 +1,11 @@
 # ACTIVIDAD EVALUABLE 3 - GIT Y DOCKER
 
+[TOC]
+
+
+
+## INTRODUCCION
+
 Para empezar a organizar la entrega de la tarea se va a crear un repositorio GitHub (
 
 [https://github.com/IgnacioFernandezGonzalez/Actividad3]: 
@@ -235,7 +241,7 @@ Y como podemos comprobar, el resultado es satisfactorio
 
 ![image-20220325201726574](image-20220325201726574.png)
 
-Para elimianr el contenedor usaremos el comando
+Para eliminar el contenedor usaremos el comando
 
 ```
 docker rm bbdd
@@ -257,7 +263,7 @@ Ahora ya podemos eliminar el contenedor. Cómo e ve en la imagen, ya esta elimin
 
 
 
-Ejercicio 2 - almacenamiento
+## Ejercicio 2 - almacenamiento
 
 Para la resolución de este segundo ejercicio lo primero que tenemos que crear es una carpeta "saludo", yo la haré en el directorio /ejercicio2/saludo
 
@@ -287,6 +293,10 @@ docker container run --name c1 -v /ejercicio2/saludo:/var/www/html --publish 818
 
 ![image-20220326114511884](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220326114511884.png)
 
+Vemos que una vez accedimos al contenedor c1, podemos visualizar el contenido de `index.html`
+
+![image-20220326121826152](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220326121826152.png)
+
 Una vez montado podemos acceder por el navegador a nuestro fichero .html en el puerto 8181
 
 ![image-20220326115104988](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220326115104988.png)
@@ -301,11 +311,11 @@ docker container run --name c2 -v /ejercicio2/saludo:/var/www/html --publish 828
 
 ![image-20220326115644724](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220326115644724.png)
 
-Ahora con el contenedor "c2" arrancado modificaremos el contenido del fichero `index.html`
+Ahora con el contenedor "c2" arrancado modificaremos el contenido del fichero `index.html`, vemos que se puede seguir accediendo a `index.html` con el contenedor c2 arrancado.
 
 ![image-20220326115829601](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220326115829601.png)
 
-Vamos a comprobar que efectivamente tenemos acceso a este index.htm por el puerto 8282
+Vamos a comprobar que efectivamente tenemos acceso a este index.html por el puerto 8282
 
 ![image-20220326120006000](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220326120006000.png)
 
@@ -337,3 +347,28 @@ docker exec -i -t c2 /bin/bash
 
 ![image-20220326120954816](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220326120954816.png)
 
+Como paso final borraremos ambos contenedores, para lo que antes tendremos que pararlos con el comando
+
+```
+docker stop c1 c2
+```
+
+![image-20220326121155519](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220326121155519.png)
+
+Para a continuación eliminarlos con el comando
+
+```
+docker rm c1 c2
+```
+
+![image-20220326121254703](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220326121254703.png)
+
+Si hacemos 
+
+```
+docker ps -a
+```
+
+Vemos que ya no existen estos contenedores
+
+![image-20220326121406181](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220326121406181.png)
