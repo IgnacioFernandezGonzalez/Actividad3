@@ -309,5 +309,31 @@ Vamos a comprobar que efectivamente tenemos acceso a este index.htm por el puert
 
 ![image-20220326120006000](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220326120006000.png)
 
+A continuación vamos a comprobar que podemos seguir accediendo a lso dos contenedores, sin necesidad de reiniciarlos
 
+Primero comprobamos que están creados y en funcionamiento, con el comando
+
+```
+docker ps
+```
+
+![image-20220326120437792](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220326120437792.png)
+
+Efectivamente están en funcionamiento, y ahora vamos a acceder a cada uno de ellos con el comando
+
+```
+docker exec -i -t c1 /bin/bash
+```
+
+![image-20220326120802387](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220326120802387.png)
+
+Vemos que efectivamente accedemos al shell del contenedor c1
+
+Ahora haremos lo mismo con el contenedor c2
+
+```
+docker exec -i -t c2 /bin/bash
+```
+
+![image-20220326120954816](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220326120954816.png)
 
