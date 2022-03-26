@@ -254,3 +254,40 @@ docker stop bbdd
 Ahora ya podemos eliminar el contenedor. Cómo e ve en la imagen, ya esta eliminado
 
 ![image-20220325202040544](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220325202040544.png)
+
+
+
+Ejercicio 2 - almacenamiento
+
+Para la resolución de este segundo ejercicio lo primero que tenemos que crear es una carpeta "saludo", yo la haré en el directorio /ejercicio2/saludo
+
+```
+mkdir saludo
+```
+
+Una vez estemos en el directorio creado, crearemos un fichero `index.html`
+
+con el siguiente contenido
+
+![image-20220326114056666](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220326114056666.png)
+
+Como siempre usando el editor nano, con el comando 
+
+```
+sudo nano index.html
+```
+
+El siguiente paso será arrancar uno de los contenedores que se nos pide "c1", haciendo un bind mount de la carpeta saludo en la carpeta `/var/html/www` de dicho contenedor, y haciendo que podamos acceder a el contenido por el puerto 8181
+
+Lo haremos con el comando
+
+```
+docker container run --name c1 -v /ejercicio2/saludo:/var/www/html --publish 8181:80 --detach --restart=always php:7.4-apache
+```
+
+![image-20220326114511884](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220326114511884.png)
+
+Una vez montado podemos acceder por el navegador a nuestro fichero .html en el puerto 8181
+
+![image-20220326115104988](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220326115104988.png)
+
