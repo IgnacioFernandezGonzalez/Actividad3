@@ -100,7 +100,7 @@ git add .
 
 ![image-20220324211341892](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220324211341892.png)
 
-Si ejecutamos el comado 
+Si ejecutamos el comando 
 
 ```
 git status
@@ -113,7 +113,7 @@ observamos que tenemos cambios sin confirmar
 El siguiente paso es realizar un commit, para confirmar estos cambios que damos por buenos.
 
 ```
-git commit -m "index.htm creado"
+git commit -m "index.html creado"
 ```
 
 ![image-20220324211705570](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220324211705570.png)
@@ -372,3 +372,34 @@ docker ps -a
 Vemos que ya no existen estos contenedores
 
 ![image-20220326121406181](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220326121406181.png)
+
+
+
+## Ejercicio 3 - redes
+
+Lo primero que vamos a hacer va a ser crear la red bridge que se nos solicita, para ello ejecutaremos el siguiente comando
+
+```
+docker network create --driver bridge redbd
+```
+
+![image-20220328182154568](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220328182154568.png)
+
+Como podemos observar se ha creado la red "redbd", con el comando
+
+```
+docker network ls
+```
+
+![image-20220328182325734](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220328182325734.png)
+
+Lo siguiente será crear un contenedor con la imagen de mariaDB en esta red bridge "redbd", para ello ejecutaremos el siguiente comando, esta red será accesible a través del puerto 3306 y tendra root como contraseña del usuario root, además de un volumen de datos persistente.
+
+```
+docker run -d --network redbd --name bbdd --env MARIADB_ROOT_PASWORD=root -p 3306:3306 -v /ignaciofernandez/ejercicio3 mariadb:latest
+```
+
+![image-20220328184424294](ACTIVIDAD%20EVALUABLE%203%20-%20GIT%20Y%20DOCKER.assets/image-20220328184424294.png)
+
+
+
