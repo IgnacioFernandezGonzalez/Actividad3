@@ -1,5 +1,7 @@
 # ACTIVIDAD EVALUABLE 3 - GIT Y DOCKER
 
+[TOC]
+
 Para empezar a organizar la entrega de la tarea se va a crear un repositorio GitHub (
 
 [https://github.com/IgnacioFernandezGonzalez/Actividad3]: 
