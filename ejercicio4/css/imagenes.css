@@ -1,0 +1,58 @@
+/*
+Hoja de estilos donde defino los atributos de cada elemento
+de la web html
+*/
+
+/*
+Estilo para las caracteristicas de las imagenes de la web
+*/
+img{
+    width: 305px;
+    height: 200px;
+}
+
+/*
+Estilo para los elementos de H1, con las animaciones solicitadas.
+*/
+H1{
+    text-align: center;
+    color: red;
+    animation-name: estiloanimacion;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+/*
+Estilo para que al pasar el raton por enciam de la cabecera, nos cambie el color a verde
+*/
+h1:hover{
+    color: green;
+}
+
+/*
+Determianmos la forma en la que se va a comportar la animacion"estiloanimacion
+*/
+@keyframes estiloanimacion {
+ from{
+     font-size: 40px;
+ } 
+ to{
+     font-size: 50px;
+ }  
+}
+
+/*
+Estilo para los elementos de cabecera.
+*/
+.cabecera{
+    border: red solid;
+    width: 100%;
+}
+
+/*
+Estilo para la tabla, a la que he denominado contenido
+*/
+.contenido{
+    border-collapse: separate;
+    border-spacing: 5px;
+}
